@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout             xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    xmlns:tools="http://schemas.android.com/tools">
+
+
+	<data>
+		<variable name = "AuthViewModel" type = "com.example.mvvm.ui.auth.AuthViewModel" />
+	</data>
+<androidx.constraintlayout.widget.ConstraintLayout
+
+		android:layout_width = "match_parent"
+		android:background="@android:color/background_light"
+		android:layout_height = "match_parent"
+		tools:context = ".ui.auth.SignupActivity">
+
+	<EditText
+			android:text="@={AuthViewModel.name}"
+			android:layout_width = "0dp"
+			android:layout_height = "wrap_content"
+			android:inputType = "textPersonName"
+			android:hint = "Name"
+			android:ems = "10"
+			android:id = "@+id/register_et_name" app:layout_constraintEnd_toEndOf = "parent"
+			app:layout_constraintStart_toStartOf = "parent"
+			app:layout_constraintTop_toTopOf = "parent"
+			app:layout_constraintBottom_toBottomOf = "parent" android:layout_marginRight = "16dp"
+			android:layout_marginEnd = "16dp" android:layout_marginLeft = "16dp" android:layout_marginStart = "16dp" />
+	<EditText
+			android:text="@={AuthViewModel.email}"
+			android:layout_width = "0dp"
+			android:layout_height = "wrap_content"
+			android:inputType = "textPersonName"
+			android:hint = "email"
+			android:ems = "10"
+			android:id = "@+id/register_et_email" app:layout_constraintEnd_toEndOf = "parent"
+			app:layout_constraintStart_toStartOf = "parent"
+			android:layout_marginRight = "16dp"
+			android:layout_marginEnd = "16dp" android:layout_marginLeft = "16dp" android:layout_marginStart = "16dp"
+			android:layout_marginTop = "16dp" app:layout_constraintTop_toBottomOf = "@+id/register_et_name" />
+	<EditText
+			android:text="@={AuthViewModel.pass}"
+			android:layout_width = "0dp"
+			android:layout_height = "wrap_content"
+			android:inputType = "textPersonName"
+			android:hint = "password"
+			android:ems = "10"
+			android:id = "@+id/register_et_pass" app:layout_constraintEnd_toEndOf = "parent"
+			app:layout_constraintStart_toStartOf = "parent"
+			android:layout_marginRight = "16dp"
+			android:layout_marginEnd = "16dp" android:layout_marginLeft = "16dp"
+			android:layout_marginStart = "16dp"
+			app:layout_constraintHorizontal_bias = "0.0" android:layout_marginTop = "16dp"
+			app:layout_constraintTop_toBottomOf = "@+id/register_et_email" />
+	<EditText
+			android:text="@={AuthViewModel.confirm_pass}"
+			android:layout_width = "0dp"
+			android:layout_height = "wrap_content"
+			android:inputType = "textPersonName"
+			android:hint = "confirm password"
+			android:ems = "10"
+			android:id = "@+id/register_et_confirmpass" app:layout_constraintEnd_toEndOf = "parent"
+			app:layout_constraintStart_toStartOf = "parent"
+			android:layout_marginRight = "16dp"
+			android:layout_marginEnd = "16dp" android:layout_marginLeft = "16dp" android:layout_marginStart = "16dp"
+			app:layout_constraintHorizontal_bias = "0.0"
+			app:layout_constraintTop_toBottomOf = "@+id/register_et_pass" android:layout_marginTop = "16dp" />
+	<Button
+			android:onClick="@{AuthViewModel::onSignupBtnClicked}"
+			android:text = "register"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:id = "@+id/register_btn" app:layout_constraintEnd_toEndOf = "@+id/register_et_confirmpass"
+			app:layout_constraintStart_toStartOf = "@+id/register_et_confirmpass" android:layout_marginTop = "16dp"
+			app:layout_constraintTop_toBottomOf = "@+id/register_et_confirmpass" />
+	<TextView
+			android:textColor="@color/colorAccent"
+			android:onClick="@{AuthViewModel::openLogin}"
+			android:text = "Sign In?"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:id = "@+id/register_tv_signin"
+			app:layout_constraintEnd_toEndOf = "parent" app:layout_constraintStart_toStartOf = "parent"
+			android:layout_marginBottom = "16dp" app:layout_constraintBottom_toBottomOf = "parent" />
+	<ProgressBar
+			android:visibility="gone"
+			style = "?android:attr/progressBarStyle"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:id = "@+id/register_progressBar" app:layout_constraintEnd_toEndOf = "parent" android:layout_marginEnd = "8dp"
+			android:layout_marginRight = "8dp"
+			android:layout_marginTop = "8dp"
+			app:layout_constraintTop_toTopOf = "parent" android:layout_marginBottom = "8dp"
+			app:layout_constraintBottom_toBottomOf = "parent" app:layout_constraintStart_toStartOf = "parent"
+			android:layout_marginLeft = "8dp" android:layout_marginStart = "8dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
