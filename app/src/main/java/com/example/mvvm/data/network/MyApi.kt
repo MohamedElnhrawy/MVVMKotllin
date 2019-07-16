@@ -26,7 +26,7 @@ interface MyApi {
                        @Field("password") password:String):Response<AuthResoinse>
 
     @GET("quotes")
-    suspend fun getQoutes():Response<QuoteResponse>
+    fun getQoutes():Response<QuoteResponse>
 
     companion object{
         operator fun invoke(networkconnectioninterceptor:NetworkConnectionInterceptor):MyApi{
