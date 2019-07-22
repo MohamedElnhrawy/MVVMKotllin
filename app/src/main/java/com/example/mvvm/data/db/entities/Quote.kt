@@ -11,6 +11,6 @@ class Quote (
     var author:String,
     var thumbnail:String,
     var created_at:String,
-    var updated_aat:String
+    var updated_at:String
 ) {
 }

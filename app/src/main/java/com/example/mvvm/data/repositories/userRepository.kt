@@ -6,8 +6,9 @@ import com.example.mvvm.data.network.MyApi
 import com.example.mvvm.data.network.SafeApiRequest
 import com.example.mvvm.data.network.response.AuthResoinse
 
-class userRepository(private val api:MyApi ,
-                     private val db:AppDatatBase)  :SafeApiRequest(){
+class userRepository(private val api:MyApi , private val db:AppDatatBase)  :SafeApiRequest(){
+
+
   suspend fun userLogin(email:String, password:String) : AuthResoinse {
         // you should inject this
       return apiRequest { api.Login(email,password)}

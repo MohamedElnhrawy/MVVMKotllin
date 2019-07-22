@@ -4,6 +4,7 @@ import com.example.mvvm.data.network.response.AuthResoinse
 import com.example.mvvm.data.network.response.QuoteResponse
 import okhttp3.OkHttpClient
 import okhttp3.ResponseBody
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -26,15 +27,19 @@ interface MyApi {
                        @Field("password") password:String):Response<AuthResoinse>
 
     @GET("quotes")
-    fun getQoutes():Response<QuoteResponse>
+    suspend fun getQoutes():Response<QuoteResponse>
 
     companion object{
         operator fun invoke(networkconnectioninterceptor:NetworkConnectionInterceptor):MyApi{
-            val okHttpclient =OkHttpClient.Builder().addInterceptor(networkconnectioninterceptor).build()
+            val interceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+            val okHttpclient =OkHttpClient.Builder()
+                .addInterceptor(interceptor)
+                .addInterceptor(networkconnectioninterceptor).build()
 
             return Retrofit.Builder().addConverterFactory(GsonConverterFactory.create())
                 .baseUrl("https://api.simplifiedcoding.in/course-apis/mvvm/")
                 .client(okHttpclient)
+                .addConverterFactory(GsonConverterFactory.create())
                 .build().create(MyApi::class.java)
          }
     }

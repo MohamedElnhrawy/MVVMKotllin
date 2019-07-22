@@ -12,7 +12,7 @@
            tools:context=".ui.auth.LoginActivity">
 
         <EditText
-                android:text="@{AuthViewModel.email}"
+                android:text="@={AuthViewModel.email}"
                 android:layout_width = "0dp"
                 android:layout_height = "wrap_content"
                 android:inputType = "textPersonName"
@@ -25,7 +25,7 @@
                 android:layout_marginLeft = "16dp" android:layout_marginStart = "16dp" />
         <EditText
                 android:password="true"
-                android:text="@{AuthViewModel.pass}"
+                android:text="@={AuthViewModel.pass}"
                 android:layout_width = "0dp"
                 android:layout_height = "wrap_content"
                 android:inputType = "textPersonName"
